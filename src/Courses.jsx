@@ -35,13 +35,13 @@ const Courses = () => {
       rating: rating,
       price: "$174.30",
     },
-    {
-      id: 5,
-      img: course3,
-      name: "Learn using Figma",
-      rating: rating,
-      price: "$223.30",
-    },
+    // {
+    //   id: 5,
+    //   img: course3,
+    //   name: "Learn using Figma",
+    //   rating: rating,
+    //   price: "$223.30",
+    // },
   ];
 
   const slideRight = () => {

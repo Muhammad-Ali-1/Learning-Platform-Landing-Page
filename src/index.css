@@ -447,10 +447,17 @@ html {
 .courses-section .courses-container .bottom .course-slider .card {
   background-color: #fff;
   box-shadow: 0px 7px 45px rgba(36, 93, 81, 0.07);
-  width: 34rem;
   display: flex;
-  padding: 2rem 0 4rem 0;
+  padding: 2rem 2rem 4rem 2rem;
   justify-content: center;
+  border-radius: 1.2rem;
+  transition: 0.7s ease;
+}
+
+.courses-section .courses-container .bottom .course-slider .card:hover {
+  box-shadow: 4px 7px 160px rgba(36, 93, 81, 0.25);
+  z-index: 10;
+  transform: scale(1.04);
 }
 
 .courses-section .courses-container .bottom .course-slider .card .card-image {
@@ -514,8 +521,6 @@ html {
 
 .courses-section .bottom .course-slider .card .card-data .line3 .icon img {
   width: 1.5rem;
-
-  background-color: rgba(36, 93, 81, 0.1);
 }
 
 .courses-section .bottom .course-slider .card .card-data .line3 h3 {
@@ -529,7 +534,6 @@ html {
 .courses-section .bottom .course-slider {
   display: flex;
   gap: 3rem;
-  /* flex-wrap: wrap; */
 }
 
 /* ///Courses Section*/
