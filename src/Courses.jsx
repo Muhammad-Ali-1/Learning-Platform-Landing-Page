@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import course1 from "./assets/course1.png";
 import course2 from "./assets/course2.png";
 import course3 from "./assets/course3.png";
@@ -35,21 +35,72 @@ const Courses = () => {
       rating: rating,
       price: "$174.30",
     },
-    // {
-    //   id: 5,
-    //   img: course3,
-    //   name: "Learn using Figma",
-    //   rating: rating,
-    //   price: "$223.30",
-    // },
+    {
+      id: 5,
+      img: course3,
+      name: "Learn using Figma",
+      rating: rating,
+      price: "$223.30",
+    },
+    {
+      id: 6,
+      img: course3,
+      name: "Learn using Figma",
+      rating: rating,
+      price: "$223.30",
+    },
   ];
 
-  const slideRight = () => {
-    console.log("Right");
-  };
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [cardWidth, setCardWidth] = useState(0);
+  const [gap, setGap] = useState(0);
+  const [isEnd, setIsEnd] = useState(false);
+  const sliderRef = useRef(null);
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const calculateSizes = () => {
+      if (cardRef.current) {
+        setCardWidth(cardRef.current.offsetWidth);
+      }
+
+      const rootFontSize = parseFloat(
+        getComputedStyle(document.documentElement).fontSize
+      );
+      const gapInRem = 3; // Gap in rem
+      setGap(gapInRem * rootFontSize); // Convert gap to pixels
+    };
+
+    calculateSizes();
+
+    window.addEventListener("resize", calculateSizes);
+
+    return () => {
+      window.removeEventListener("resize", calculateSizes);
+    };
+  }, []);
+
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (slider) {
+      const sliderWidth = slider.offsetWidth;
+      const totalContentWidth = (cardWidth + gap) * courses.length;
+
+      // Calculate the maximum left translation
+      const maxTranslateX = totalContentWidth - sliderWidth;
+
+      // Update isEnd based on the current slide and maxTranslateX
+      const newIsEnd = currentSlide * (cardWidth + gap) >= maxTranslateX;
+      setIsEnd(newIsEnd);
+    }
+  }, [currentSlide, cardWidth, gap, courses.length]);
 
   const slideLeft = () => {
-    console.log("Left");
+    setCurrentSlide((c) => Math.max(c - 1, 0));
+  };
+
+  const slideRight = () => {
+    setCurrentSlide((c) => Math.min(c + 1, courses.length - 1));
   };
 
   return (
@@ -61,36 +112,53 @@ const Courses = () => {
             <button onClick={slideLeft} className="left-button">
               <i className="ri-arrow-left-line"></i>
             </button>
-            <button onClick={slideRight} className="right-button">
+            <button
+              onClick={slideRight}
+              className="right-button"
+              disabled={isEnd}
+            >
               <i className="ri-arrow-right-line"></i>
             </button>
           </div>
         </div>
         <div className="bottom">
-          <div className="course-slider">
-            {courses.map((course) => (
-              <div key={course.id} className="card">
-                <div className="card-content">
-                  <img className="card-image" src={course.img} alt="" />
-                  <div className="card-data">
-                    <div className="line1">
-                      <h1>{course.name}</h1>
-                      <img src={course.rating} alt="" />
-                    </div>
-                    <div className="line2">
-                      <h3 className="price">{course.price}</h3>
-                      <button>Book Now</button>
-                    </div>
-                    <div className="line3">
-                      <div className="icon">
-                        <img src={bestSellerIcon} alt="" />
+          <div className="course-slider-container">
+            <div
+              className="course-slider"
+              ref={sliderRef}
+              style={{
+                transform: `translateX(-${currentSlide * (cardWidth + gap)}px)`,
+                transition: "transform 0.7s ease",
+              }}
+            >
+              {courses.map((course, index) => (
+                <div
+                  key={course.id}
+                  className="card"
+                  ref={index === 0 ? cardRef : null} // Assign ref only to the first card
+                >
+                  <div className="card-content">
+                    <img className="card-image" src={course.img} alt="" />
+                    <div className="card-data">
+                      <div className="line1">
+                        <h1>{course.name}</h1>
+                        <img src={course.rating} alt="" />
                       </div>
-                      <h3>Best Seller</h3>
+                      <div className="line2">
+                        <h3 className="price">{course.price}</h3>
+                        <button>Book Now</button>
+                      </div>
+                      <div className="line3">
+                        <div className="icon">
+                          <img src={bestSellerIcon} alt="" />
+                        </div>
+                        <h3>Best Seller</h3>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

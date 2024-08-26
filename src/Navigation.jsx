@@ -7,6 +7,7 @@ const Navigation = () => {
 
   const handleMenuClick = () => {
     setMenuState(!menuState);
+    // document.body.classList.add("no-scroll");
   };
 
   return (
