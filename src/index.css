@@ -548,6 +548,242 @@ html {
 
 /* ---------------------------------------------------------------------------- */
 
+/* ///Pricing Section*/
+
+.pricing-section {
+  max-width: 1920px;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.pricing-section .pricing-container {
+  padding: 4rem 8rem 4rem 8rem;
+  position: relative;
+}
+
+.pricing-section .heading h1 {
+  margin: auto;
+  color: #2c2c2c;
+  font-size: 4.4rem;
+  text-align: center;
+  width: 70rem;
+  margin-bottom: 4rem;
+}
+
+.pricing-section .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.pricing-section .content .left {
+  background-color: #f8f3ed;
+  width: 48%;
+  border-radius: 1.3rem;
+  padding: 4rem 4rem 6rem 4rem;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.pricing-section .content .left .top-options {
+  align-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+.pricing-section .content .left .top-options .buttons {
+  background: rgba(36, 93, 81, 0.17);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24rem;
+  height: 6rem;
+  border-radius: 1.5rem;
+}
+
+.pricing-section .content .left .top-options button {
+  border-radius: 1.2rem;
+  background: none;
+  border: none;
+  font-size: 1.9rem;
+  cursor: pointer;
+  height: 5rem;
+  padding: 0 2.5rem;
+}
+
+.pricing-section .content .left .top-options .active {
+  background: #245d51;
+  color: #fff;
+  transition: 0.5s ease;
+}
+
+.pricing-section .content .left .shape1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.pricing-section .content .left .shape2 {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.pricing-section .content .left .bottom .features {
+  margin-top: 4rem;
+  padding: 0 2rem;
+}
+
+.pricing-section .content .left .bottom .features .feature {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pricing-section .content .left .bottom .features .feature .left-part {
+  display: flex;
+  gap: 1rem;
+}
+
+.pricing-section .content .left .bottom .features .feature .left-part h3 {
+  font-size: 1.75rem;
+  color: #2c2c2c;
+  font-weight: 300;
+}
+
+.pricing-section .content .left .bottom .features .feature .status-icon {
+  transition: 0.5s ease;
+  /* transform: translate(50%); */
+}
+
+.pricing-section .content .left .bottom .features hr {
+  border: 1px dashed rgba(52, 124, 109, 0.15);
+  margin: 1.8rem 0;
+}
+
+.pricing-section .content .right {
+  /* background-color: #a8f8f8; */
+  width: 48%;
+  display: flex;
+  align-items: center;
+}
+
+.pricing-section .content .right .packages {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.pricing-section .content .right .package {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+
+  background: #ffffff;
+  border: 0.4rem solid #f6f6f8;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.pricing-section .content .right .package .left-side {
+  display: flex;
+  gap: 2rem;
+}
+
+.pricing-section .content .right .package .left-side h3 {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.pricing-section .content .right .package .left-side p {
+  font-size: 1.5rem;
+  color: #cb8461;
+  background-color: #ebd2c332;
+  padding: 0.7rem 1.3rem;
+  border-radius: 2.2rem;
+}
+.pricing-section .content .right .package .right-side h1 {
+  font-size: 4.2rem;
+  color: #0a0a4a;
+}
+.pricing-section .content .right .package .right-side span {
+  font-size: 1.6rem;
+  color: #9193b0;
+  font-weight: 300;
+}
+
+.pricing-section .content .right .active {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+  background: #245d51;
+  border: 0.4rem solid #245d51;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0px 8px 48px rgba(36, 93, 81, 0.24);
+  z-index: 1;
+  transition: 0.5s ease;
+}
+
+.pricing-section .content .right .active .left-side {
+  display: flex;
+  gap: 2rem;
+}
+
+.pricing-section .content .right .active .left-side h3 {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+
+.pricing-section .content .right .active .left-side p {
+  font-size: 1.5rem;
+  color: #ffffff80;
+  background-color: #42756a;
+  padding: 0.7rem 1.3rem;
+  border-radius: 2.2rem;
+}
+
+.pricing-section .content .right .active .right-side h1 {
+  font-size: 4.2rem;
+  color: #fff;
+}
+
+.pricing-section .content .right .active .right-side span {
+  font-size: 1.6rem;
+  color: #ffffff60;
+  font-weight: 300;
+}
+
+.pricing-section .choose-plan-button {
+  position: absolute;
+  bottom: -5rem;
+  left: 75%;
+  transform: translateX(-75%);
+}
+.pricing-section .choose-plan-button button {
+  background-color: #245d51;
+  border: none;
+  color: #fff;
+  width: 17rem;
+  height: 5rem;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.pricing-section .choose-plan-button button:hover {
+  background-color: #14463a;
+}
+
+/* ///Pricing Section*/
+
+/* ---------------------------------------------------------------------------- */
+
 /* Media Queries*/
 
 @media (min-width: 1441px) {

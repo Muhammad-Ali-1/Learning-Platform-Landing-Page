@@ -3,6 +3,7 @@ import HeroSection from "./HeroSection";
 import Brands from "./Brands";
 import Explore from "./Explore";
 import Courses from "./Courses";
+import Pricing from "./Pricing";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Brands />
       <Explore />
       <Courses />
+      <Pricing />
     </>
   );
 }
