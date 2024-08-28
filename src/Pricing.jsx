@@ -78,25 +78,25 @@ const Pricing = () => {
       id: 1,
       name: "Intro",
       discount: "20%",
-      price: "$19",
+      price: "19",
     },
     {
       id: 2,
       name: "Base",
-      discount: "20%",
-      price: "$49",
+      discount: "25%",
+      price: "49",
     },
     {
       id: 3,
       name: "Popular",
-      discount: "20%",
-      price: "$99",
+      discount: "18%",
+      price: "99",
     },
     {
       id: 4,
       name: "Enterprise",
-      discount: "20%",
-      price: "$119",
+      discount: "21%",
+      price: "119",
     },
   ];
 
@@ -196,8 +196,14 @@ const Pricing = () => {
                   </div>
                   <div className="right-side">
                     <h1>
-                      {plan.price}
-                      <span>/Month</span>
+                      $
+                      {isMonthlySelected
+                        ? plan.price
+                        : Math.floor(plan.price * 8)}
+                      {/* {isMonthlySelected
+                        ? plan.price
+                        : Math.floor(plan.price * 12 * 0.8)} */}
+                      <span> /{isMonthlySelected ? "Month" : "Year"}</span>
                     </h1>
                   </div>
                 </div>
