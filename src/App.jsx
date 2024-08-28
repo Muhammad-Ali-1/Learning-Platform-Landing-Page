@@ -5,6 +5,7 @@ import Explore from "./Explore";
 import Courses from "./Courses";
 import Pricing from "./Pricing";
 import Testimonials from "./Testimonials";
+import Banner from "./Banner";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Courses />
       <Pricing />
       <Testimonials />
+      <Banner />
     </>
   );
 }
