@@ -6,6 +6,7 @@ import Courses from "./Courses";
 import Pricing from "./Pricing";
 import Testimonials from "./Testimonials";
 import Banner from "./Banner";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Pricing />
       <Testimonials />
       <Banner />
+      <Footer />
     </>
   );
 }

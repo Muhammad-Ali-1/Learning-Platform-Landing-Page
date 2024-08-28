@@ -1026,6 +1026,113 @@ html {
 
 /* ---------------------------------------------------------------------------- */
 
+/* Footer Section*/
+
+.footer-section {
+  max-width: 1920px;
+  margin: auto;
+  padding: 10rem 8rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-container .left img {
+  margin-bottom: 5rem;
+}
+
+.footer-container .left p {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.68em;
+  color: rgba(44, 44, 44, 0.5);
+  margin-bottom: 1.75rem;
+}
+
+.footer-container .left h4 {
+  font-weight: 700;
+  font-size: 2.1rem;
+  color: #2c2c2c;
+}
+
+.footer-container .mid {
+  margin-top: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-container .mid .links {
+  display: flex;
+  margin-bottom: 10rem;
+  gap: 2rem;
+}
+
+.footer-container .mid .links a {
+  color: #2c2c2c;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+.footer-container .mid .links a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+.footer-container .mid p {
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: rgba(44, 44, 44, 0.5);
+}
+
+.footer-container .right {
+  margin-top: 0.3rem;
+}
+
+.footer-container .right h3 {
+  font-size: 2rem;
+  color: #2c2c2c;
+  margin-bottom: 1.6rem;
+}
+
+.footer-container .right p {
+  font-weight: 400;
+  font-size: 1.4rem;
+  width: 21rem;
+  color: rgba(44, 44, 44, 0.5);
+  margin-bottom: 2.7rem;
+}
+
+.footer-container .right .input {
+  position: relative;
+}
+
+.footer-container .right input {
+  width: 21rem;
+  box-sizing: border-box;
+  padding: 1.4rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 15px;
+  color: rgba(44, 44, 44);
+  background-color: #f3f3f3;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+}
+
+.footer-container .right .input img {
+  width: 2rem;
+  position: absolute;
+  right: 1.4rem;
+  top: 25%;
+}
+
+/* ///Footer Section*/
+
+/* ---------------------------------------------------------------------------- */
+
 /* Media Queries*/
 
 @media (min-width: 1441px) {
