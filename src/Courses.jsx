@@ -14,13 +14,7 @@ const Courses = () => {
       rating: rating,
       price: "$123.30",
     },
-    {
-      id: 2,
-      img: course2,
-      name: "Flutter",
-      rating: rating,
-      price: "$174.30",
-    },
+    { id: 2, img: course2, name: "Flutter", rating: rating, price: "$174.30" },
     {
       id: 3,
       img: course3,
@@ -28,13 +22,7 @@ const Courses = () => {
       rating: rating,
       price: "$223.30",
     },
-    {
-      id: 4,
-      img: course2,
-      name: "Flutter",
-      rating: rating,
-      price: "$174.30",
-    },
+    { id: 4, img: course2, name: "Flutter", rating: rating, price: "$174.30" },
     {
       id: 5,
       img: course3,
@@ -59,6 +47,7 @@ const Courses = () => {
   const cardRef = useRef(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const touchMoved = useRef(false);
 
   useEffect(() => {
     const calculateSizes = () => {
@@ -107,18 +96,23 @@ const Courses = () => {
 
   const handleTouchStart = (e) => {
     touchStartX.current = e.targetTouches[0].clientX;
+    touchMoved.current = false; // Reset touch moved state
   };
 
   const handleTouchMove = (e) => {
     touchEndX.current = e.targetTouches[0].clientX;
+    touchMoved.current = true; // Set touch moved to true
   };
 
   const handleTouchEnd = () => {
-    if (touchStartX.current - touchEndX.current > 50) {
-      slideRight();
-    }
+    if (!touchMoved.current) return; // If touch did not move, do nothing
 
-    if (touchStartX.current - touchEndX.current < -50) {
+    const threshold = 10; // Minimum distance for swipe detection
+    const swipeDistance = touchStartX.current - touchEndX.current;
+
+    if (swipeDistance > threshold) {
+      slideRight();
+    } else if (swipeDistance < -threshold) {
       slideLeft();
     }
   };
@@ -129,7 +123,11 @@ const Courses = () => {
         <div className="top">
           <h1>Find your Perfect Course</h1>
           <div className="buttons">
-            <button onClick={slideLeft} className="left-button">
+            <button
+              onClick={slideLeft}
+              className="left-button"
+              disabled={currentSlide === 0}
+            >
               <i className="ri-arrow-left-line"></i>
             </button>
             <button
@@ -161,11 +159,15 @@ const Courses = () => {
                   ref={index === 0 ? cardRef : null} // Assign ref only to the first card
                 >
                   <div className="card-content">
-                    <img className="card-image" src={course.img} alt="" />
+                    <img
+                      className="card-image"
+                      src={course.img}
+                      alt={course.name}
+                    />
                     <div className="card-data">
                       <div className="line1">
                         <h1>{course.name}</h1>
-                        <img src={course.rating} alt="" />
+                        <img src={course.rating} alt="rating" />
                       </div>
                       <div className="line2">
                         <h3 className="price">{course.price}</h3>
@@ -173,7 +175,7 @@ const Courses = () => {
                       </div>
                       <div className="line3">
                         <div className="icon">
-                          <img src={bestSellerIcon} alt="" />
+                          <img src={bestSellerIcon} alt="best seller" />
                         </div>
                         <h3>Best Seller</h3>
                       </div>
@@ -185,7 +187,11 @@ const Courses = () => {
           </div>
         </div>
         <div className="buttons buttons-for-mobile">
-          <button onClick={slideLeft} className="left-button">
+          <button
+            onClick={slideLeft}
+            className="left-button"
+            disabled={currentSlide === 0}
+          >
             <i className="ri-arrow-left-line"></i>
           </button>
           <button

@@ -51,6 +51,7 @@ const Testimonials = () => {
   const testimonialRef = useRef(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const touchMoved = useRef(false);
 
   useEffect(() => {
     if (testimonialRef.current) {
@@ -79,18 +80,23 @@ const Testimonials = () => {
 
   const handleTouchStart = (e) => {
     touchStartX.current = e.targetTouches[0].clientX;
+    touchMoved.current = false; // Reset touch moved state
   };
 
   const handleTouchMove = (e) => {
+    touchMoved.current = true; // Set touch moved to true
     touchEndX.current = e.targetTouches[0].clientX;
   };
 
   const handleTouchEnd = () => {
-    if (touchStartX.current - touchEndX.current > 50) {
-      slideRight();
-    }
+    if (!touchMoved.current) return; // If touch did not move, do nothing
 
-    if (touchStartX.current - touchEndX.current < -50) {
+    const threshold = 10; // Minimum distance for swipe detection
+    const swipeDistance = touchStartX.current - touchEndX.current;
+
+    if (swipeDistance > threshold) {
+      slideRight();
+    } else if (swipeDistance < -threshold) {
       slideLeft();
     }
   };

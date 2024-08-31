@@ -151,7 +151,7 @@ html {
 .hero-section-content .left-part {
   padding: 8rem 0 0rem 8rem;
   width: 50%;
-  z-index: 11111;
+  z-index: 11;
 }
 .hero-section-content .right-part {
   width: 50%;
@@ -1347,8 +1347,8 @@ html {
   }
   .no-scroll {
     overflow-y: hidden;
-    position: fixed; /* Prevents the body from moving */
-    width: 100%; /* Prevents body width from shrinking */
+    position: fixed;
+    width: 100%;
   }
 
   .header .header-content {
@@ -1401,6 +1401,14 @@ html {
     font-size: 2.6rem;
     width: 16rem;
     height: 8rem;
+  }
+
+  .navigation .login-btn:hover {
+    background: unset;
+  }
+
+  .navigation .signup-btn:hover {
+    background: rgba(242, 231, 219, 0.4);
   }
 
   /* Hero Section*/
@@ -1458,6 +1466,22 @@ html {
     border-radius: 0.8rem;
     width: 22rem;
   }
+
+  /* ---------------------------------------- */
+
+  .hero-section-content .started-btn:hover {
+    background-color: #cb8461;
+  }
+
+  .hero-section-content .learn-btn:hover {
+    background: none;
+  }
+
+  .hero-section-content .learn-btn:hover i {
+    background: #fff;
+    color: #000;
+  }
+  /* ---------------------------------------- */
 
   .hero-section-content .learn-btn i {
     font-size: 3rem;
