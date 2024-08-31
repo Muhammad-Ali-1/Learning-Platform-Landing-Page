@@ -9,9 +9,12 @@ const Footer = () => {
       <div className="footer-container">
         <div className="left">
           <img src={logo} alt="" />
-          <p>CONTACT</p>
-          <h4>halloeduca@gmail.com</h4>
+          <div>
+            <p>CONTACT</p>
+            <h4>halloeduca@gmail.com</h4>
+          </div>
         </div>
+        {/* <div className="for-mobile"> */}
         <div className="mid">
           <div className="links">
             <NavLink to="#">Home</NavLink>
@@ -30,6 +33,7 @@ const Footer = () => {
             <img src={arrow} alt="" />
             <input type="text" placeholder="Enter your Email ... " />
           </div>
+          {/* </div> */}
         </div>
       </div>
     </div>

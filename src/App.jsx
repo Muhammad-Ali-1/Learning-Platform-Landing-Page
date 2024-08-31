@@ -1,3 +1,5 @@
+import headerBG from "./assets/headerBG.svg";
+import headerDecor from "./assets/headerDecor.svg";
 import Navigation from "./Navigation";
 import HeroSection from "./HeroSection";
 import Brands from "./Brands";
@@ -11,8 +13,16 @@ import Footer from "./Footer";
 function App() {
   return (
     <>
-      <Navigation />
-      <HeroSection />
+      <div className="header-section">
+        <div className="header-background">
+          <div className="background-container">
+            <img src={headerBG} alt="" />
+          </div>
+          <img className="header-decor" src={headerDecor} alt="" />
+          <Navigation />
+          <HeroSection />
+        </div>
+      </div>
       <Brands />
       <Explore />
       <Courses />

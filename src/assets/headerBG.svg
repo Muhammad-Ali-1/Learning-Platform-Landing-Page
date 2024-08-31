@@ -1,0 +1,47 @@
+<svg width="1358" height="974" viewBox="0 0 1358 974" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_4311_1725" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1514" height="976">
+<rect x="263.5" y="1.18457" width="111" height="973.007" stroke="white"/>
+<rect x="150.5" y="1.18457" width="113" height="973.007" stroke="white"/>
+<rect x="73.5002" y="1.18457" width="77" height="973.007" stroke="white"/>
+<rect x="0.500244" y="1.18457" width="73" height="973.007" stroke="white"/>
+<rect x="0.500244" y="1.18457" width="756" height="71.4796" stroke="white"/>
+<rect x="0.500244" y="72.6729" width="756" height="75.4511" stroke="white"/>
+<rect x="0.500244" y="148.129" width="756" height="112.187" stroke="white"/>
+<rect x="0.500244" y="260.324" width="756" height="114.173" stroke="white"/>
+<rect x="0.500244" y="374.505" width="756" height="111.194" stroke="white"/>
+<rect x="0.500244" y="485.706" width="756" height="111.194" stroke="white"/>
+<rect x="0.500244" y="596.907" width="756" height="113.18" stroke="white"/>
+<rect x="0.500244" y="710.095" width="756" height="112.187" stroke="white"/>
+<rect x="0.500244" y="822.291" width="756" height="76.444" stroke="white"/>
+<rect x="0.500244" y="898.74" width="756" height="76.444" stroke="white"/>
+<rect x="374.5" y="1.18457" width="115" height="973.007" stroke="white"/>
+<rect x="489.5" y="1.18457" width="113" height="973.007" stroke="white"/>
+<rect x="602.5" y="1.18457" width="77" height="973.007" stroke="white"/>
+<rect x="679.5" y="1.18457" width="77" height="973.007" stroke="white"/>
+<rect x="1019.5" y="1.18457" width="111" height="973.007" stroke="white"/>
+<rect x="906.501" y="1.18457" width="113" height="973.007" stroke="white"/>
+<rect x="829.501" y="1.18457" width="77" height="973.007" stroke="white"/>
+<rect x="756.5" y="1.18457" width="73" height="973.007" stroke="white"/>
+<rect x="756.5" y="1.18457" width="756" height="71.4796" stroke="white"/>
+<rect x="756.5" y="72.6729" width="756" height="75.4511" stroke="white"/>
+<rect x="756.5" y="148.129" width="756" height="112.187" stroke="white"/>
+<rect x="756.5" y="260.324" width="756" height="114.173" stroke="white"/>
+<rect x="756.5" y="374.505" width="756" height="111.194" stroke="white"/>
+<rect x="756.5" y="485.706" width="756" height="111.194" stroke="white"/>
+<rect x="756.5" y="596.907" width="756" height="113.18" stroke="white"/>
+<rect x="756.5" y="710.095" width="756" height="112.187" stroke="white"/>
+<rect x="756.5" y="822.291" width="756" height="76.444" stroke="white"/>
+<rect x="756.5" y="898.74" width="756" height="76.444" stroke="white"/>
+<rect x="1130.5" y="1.18457" width="115" height="973.007" stroke="white"/>
+<rect x="1245.5" y="1.18457" width="113" height="973.007" stroke="white"/>
+</mask>
+<g mask="url(#mask0_4311_1725)">
+<rect x="0.000244141" y="0.685547" width="1513" height="974" fill="url(#paint0_linear_4311_1725)" fill-opacity="0.2"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_4311_1725" x1="1422" y1="487.686" x2="219" y2="576.186" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
