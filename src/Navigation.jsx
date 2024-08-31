@@ -7,11 +7,12 @@ const Navigation = () => {
 
   const handleMenuClick = () => {
     setMenuState(!menuState);
-    // document.body.classList.add("no-scroll");
+    menuState
+      ? document.body.classList.remove("no-scroll")
+      : document.body.classList.add("no-scroll");
   };
-
   return (
-    <div className="header">
+    <div className={menuState ? " header header-mobile" : "header"}>
       <div className="header-content">
         <div className="navigation">
           <div

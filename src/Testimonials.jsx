@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import avatar from "./assets/avatar.png";
 import avatar2 from "./assets/avatar2.png";
 import avatar3 from "./assets/avatar3.png";
@@ -33,7 +33,7 @@ const Testimonials = () => {
     {
       avatar: avatar4,
       rating: rating,
-      name: "Donna Scott",
+      name: "Ayesha Riaz",
       feedback:
         "An excellent platform that provides comprehensive training programs designed to meet various learning needs.",
     },
@@ -47,16 +47,52 @@ const Testimonials = () => {
   ];
 
   const [currentCard, setCurrentCard] = useState(1);
+  const [testimonialWidth, setTestimonialWidth] = useState(0);
+  const testimonialRef = useRef(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  useEffect(() => {
+    if (testimonialRef.current) {
+      setTestimonialWidth(testimonialRef.current.offsetWidth);
+    }
+
+    const handleResize = () => {
+      if (testimonialRef.current) {
+        setTestimonialWidth(testimonialRef.current.offsetWidth);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const slideLeft = () => {
-    // console.log("Leftt");
     setCurrentCard((c) => Math.max(c - 1, 0));
-    console.log(currentCard);
   };
+
   const slideRight = () => {
-    // console.log("Rightt");
     setCurrentCard((c) => Math.min(c + 1, testimonials.length - 1));
-    console.log(currentCard);
+  };
+
+  const isMobile = window.innerWidth <= 660;
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      slideRight();
+    }
+
+    if (touchStartX.current - touchEndX.current < -50) {
+      slideLeft();
+    }
   };
 
   return (
@@ -69,21 +105,26 @@ const Testimonials = () => {
           <div
             className="testimonials"
             style={{
-              transform:
-                currentCard == 0
-                  ? `translateX(${currentCard + 33.33}%)`
-                  : `translateX(-${(currentCard - 1) * 33.33}%)`,
+              transform: isMobile
+                ? `translateX(-${currentCard * testimonialWidth}px)`
+                : currentCard === 0
+                ? `translateX(${currentCard + 33.33}%)`
+                : `translateX(-${(currentCard - 1) * 33.33}%)`,
             }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
+                ref={testimonialRef}
                 className={
-                  index == currentCard - 1
+                  index === currentCard - 1
                     ? "move-left testimonial"
-                    : index == currentCard + 1
+                    : index === currentCard + 1
                     ? "move-right testimonial"
-                    : index == currentCard
+                    : index === currentCard
                     ? "current-testimonial testimonial"
                     : "testimonial"
                 }
@@ -91,10 +132,10 @@ const Testimonials = () => {
                 <img
                   className="testimonial-icon"
                   src={testimonialIcon}
-                  alt=""
+                  alt="testimonial icon"
                 />
-                <img className="avatar" src={testimonial.avatar} alt="" />
-                <img className="rating" src={testimonial.rating} alt="" />
+                <img className="avatar" src={testimonial.avatar} alt="avatar" />
+                <img className="rating" src={testimonial.rating} alt="rating" />
                 <h2>{testimonial.name}</h2>
                 <p>{testimonial.feedback}</p>
               </div>

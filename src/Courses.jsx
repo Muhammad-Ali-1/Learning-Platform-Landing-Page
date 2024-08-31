@@ -57,6 +57,8 @@ const Courses = () => {
   const [isEnd, setIsEnd] = useState(false);
   const sliderRef = useRef(null);
   const cardRef = useRef(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   useEffect(() => {
     const calculateSizes = () => {
@@ -103,6 +105,24 @@ const Courses = () => {
     setCurrentSlide((c) => Math.min(c + 1, courses.length - 1));
   };
 
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      slideRight();
+    }
+
+    if (touchStartX.current - touchEndX.current < -50) {
+      slideLeft();
+    }
+  };
+
   return (
     <div className="courses-section">
       <div className="courses-container">
@@ -130,6 +150,9 @@ const Courses = () => {
                 transform: `translateX(-${currentSlide * (cardWidth + gap)}px)`,
                 transition: "transform 0.7s ease",
               }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
               {courses.map((course, index) => (
                 <div
@@ -160,6 +183,18 @@ const Courses = () => {
               ))}
             </div>
           </div>
+        </div>
+        <div className="buttons buttons-for-mobile">
+          <button onClick={slideLeft} className="left-button">
+            <i className="ri-arrow-left-line"></i>
+          </button>
+          <button
+            onClick={slideRight}
+            className="right-button"
+            disabled={isEnd}
+          >
+            <i className="ri-arrow-right-line"></i>
+          </button>
         </div>
       </div>
     </div>

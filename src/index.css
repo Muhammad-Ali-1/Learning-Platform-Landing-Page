@@ -32,6 +32,7 @@ html {
   position: absolute;
   top: 0;
   right: -6%;
+  z-index: -1111;
 }
 
 .header-background .background-container img {
@@ -84,6 +85,7 @@ html {
   font-size: 1.6rem;
   border: none;
   cursor: pointer;
+  z-index: 111;
 }
 
 .navigation .login-btn {
@@ -93,6 +95,7 @@ html {
   width: 9.7rem;
   height: 5.5rem;
   border-radius: 0.8rem;
+  cursor: pointer;
 }
 
 .navigation .login-btn:hover {
@@ -243,6 +246,7 @@ html {
 
 /* ///Hero Section*/
 
+/* ---------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------- */
 
 /* ///Brands Section*/
@@ -437,6 +441,9 @@ html {
   color: #2c2c2c;
 }
 
+.courses-section .buttons-for-mobile {
+  display: none;
+}
 .courses-section .courses-container .top .buttons button {
   width: 5.4rem;
   height: 5.4rem;
@@ -901,6 +908,7 @@ html {
   position: absolute;
   left: 5rem;
   top: 10rem;
+  width: 7rem;
 }
 
 .testimonials-section .buttons-section {
@@ -1326,7 +1334,22 @@ html {
     position: absolute;
     z-index: 100;
     background-color: rgba(36, 93, 81, 0.975);
+    /* position: fixed; */
   }
+  .header-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: hidden;
+  }
+  .no-scroll {
+    overflow-y: hidden;
+    position: fixed; /* Prevents the body from moving */
+    width: 100%; /* Prevents body width from shrinking */
+  }
+
   .header .header-content {
     width: 100vw;
   }
@@ -1359,6 +1382,7 @@ html {
 
   .navigation .setHeight {
     height: 100%;
+    overflow-y: hidden;
   }
 
   .navigation .navigation-content .nav-links a {
@@ -1543,6 +1567,133 @@ html {
 
   /* ---------------------------------------------------------------------------- */
 
+  /* Courses Section*/
+
+  .courses-section {
+    margin-top: 5rem;
+  }
+
+  .courses-section .courses-container .top {
+    flex-direction: column;
+    padding: 0rem 5rem 0rem 5rem;
+  }
+
+  .courses-section .courses-container .top h1 {
+    font-size: 5.1rem;
+    text-align: center;
+  }
+
+  .courses-section .courses-container .top .buttons {
+    display: none;
+  }
+
+  .courses-section .buttons {
+    text-align: center;
+    margin-bottom: 9rem;
+    display: block;
+  }
+
+  .courses-section .buttons button {
+    width: 6.5rem;
+    height: 6.5rem;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .courses-section .buttons .left-button {
+    background-color: #f3f3f3;
+    margin-right: 1.25rem;
+  }
+
+  .courses-section .buttons .left-button:hover {
+    background-color: #f3f3f3;
+  }
+
+  .courses-section .buttons .right-button {
+    background-color: #cb8461;
+    color: #fff;
+    box-shadow: 0px 10px 40px rgba(198, 131, 98, 0.4);
+  }
+
+  .courses-section .buttons .right-button:hover {
+    background-color: #cb8461;
+  }
+
+  .courses-section .buttons button i {
+    font-size: 3rem;
+  }
+
+  .courses-section .courses-container .bottom .course-slider .card {
+    box-shadow: 0px 7px 45px rgba(36, 93, 81, 0.08);
+  }
+
+  .courses-section .courses-container .bottom .course-slider .card:hover {
+    box-shadow: 0px 7px 45px rgba(36, 93, 81, 0.08);
+    transform: scale(1);
+  }
+
+  .courses-section .courses-container .bottom .course-slider .card .card-image {
+    width: 75vw;
+  }
+
+  .courses-section .bottom .course-slider .card .card-data .line1,
+  .courses-section .bottom .course-slider .card .card-data .line2 {
+    margin-bottom: 3rem;
+  }
+
+  .courses-section .bottom .course-slider .card .card-data .line1 h1 {
+    font-size: 3.25rem;
+  }
+
+  .courses-section .bottom .course-slider .card .card-data .line1 img {
+    width: 16rem;
+  }
+
+  .courses-section .bottom .course-slider .card .card-data .line2 h3 {
+    font-size: 4rem;
+  }
+
+  .courses-section .bottom .course-slider .card .card-data .line2 button {
+    width: 15rem;
+    height: 5rem;
+    font-size: 2rem;
+  }
+  .courses-section .bottom .course-slider .card .card-data .line2 button:hover {
+    background-color: #245d51;
+  }
+
+  .courses-section .bottom .course-slider .card .card-data .line3 .icon {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .courses-section .bottom .course-slider .card .card-data .line3 .icon img {
+    width: 2rem;
+  }
+
+  .courses-section .bottom .course-slider .card .card-data .line3 h3 {
+    font-size: 2.25rem;
+  }
+
+  .courses-section .bottom .course-slider-container {
+    width: 100vw;
+    overflow: hidden;
+    padding: 5rem 0 7rem 5rem;
+    box-sizing: border-box;
+  }
+
+  .courses-section .bottom .course-slider {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* ///Courses Section*/
+
+  /* ---------------------------------------------------------------------------- */
+
+  /* ---------------------------------------------------------------------------- */
+
   /* ///Pricing Section*/
 
   .pricing-section {
@@ -1675,23 +1826,19 @@ html {
   /* Testimonials Section*/
 
   .testimonials-section {
-    max-width: 1920px;
-    margin: auto;
-    margin-top: 7rem;
+    margin-top: 4rem;
   }
 
   .testimonials-section .testimonials-container {
-    padding: 4rem 0rem 4rem 0rem;
-    position: relative;
+    padding: 4rem 0rem 5rem 0rem;
+    width: 100vw;
+    overflow: hidden;
   }
 
   .testimonials-section .heading h1 {
     margin: auto;
-    color: #2c2c2c;
-    font-size: 5.1rem;
+    font-size: 4.4rem;
     text-align: center;
-    width: 70rem;
-    margin-bottom: 3rem;
   }
 
   .testimonials-section .content {
@@ -1699,107 +1846,61 @@ html {
     padding: 3rem 0 6rem 0;
   }
   .testimonials-section .content .testimonials {
-    display: flex;
-    transition: 0.75s ease;
-    width: 100%;
+    padding: 1rem 5rem;
   }
 
   .testimonials-section .content .testimonials .testimonial {
     /* -------------------- */
     flex: 1 1 calc(100%);
-    /* width: 100%; */
-    min-width: 100%;
-    /* margin: 0 1rem; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #ffffff;
-    box-shadow: 2px 7px 48px rgba(36, 93, 81, 0.05);
-    border-radius: 12px;
-    padding: 4rem 6rem 3rem 6rem;
-    box-sizing: border-box;
-    transition: 0.75s ease;
-    position: relative;
+    min-width: calc(100%);
   }
 
   .testimonials-section .content .testimonials .move-left {
     position: relative;
     left: -8rem;
   }
+
   .testimonials-section .content .testimonials .move-right {
     position: relative;
     right: -8rem;
   }
 
   .testimonials-section .content .testimonials .current-testimonial {
-    scale: 1.1;
+    scale: 1;
     box-shadow: 6px 7px 40px rgba(36, 93, 81, 0.14);
-    z-index: 1;
-    transition: 0.75s ease;
   }
 
   .testimonials-section .content .testimonials .testimonial .rating {
-    margin: 1.5rem 0 0.75rem 0;
+    margin: 2rem 0 1.5rem 0;
   }
 
   .testimonials-section .content .testimonials .testimonial h2 {
     font-size: 2.2rem;
-    color: #2c2c2c;
-    margin-bottom: 1.5rem;
   }
 
   .testimonials-section .content .testimonials .testimonial p {
-    font-style: italic;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 30px;
-    color: rgba(44, 44, 44, 0.5);
-    font-size: 1.7rem;
+    line-height: 20px;
+    font-size: 1.9rem;
     margin-bottom: 1.5rem;
-    width: 35rem;
-    text-align: center;
-  }
-
-  .testimonials-section .content .testimonials .testimonial .testimonial-icon {
-    position: absolute;
-    left: 5rem;
-    top: 10rem;
-  }
-
-  .testimonials-section .buttons-section {
-    display: flex;
-    justify-content: center;
+    margin-top: 1rem;
+    width: 78%;
   }
 
   .testimonials-section .buttons button {
-    width: 5.4rem;
-    height: 5.4rem;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-
-  .testimonials-section .buttons .left-button {
-    background-color: #f3f3f3;
-    margin-right: 1.25rem;
+    width: 6.5rem;
+    height: 6.5rem;
   }
 
   .testimonials-section .buttons .left-button:hover {
-    background-color: #e3e3e3;
-  }
-
-  .testimonials-section .buttons .right-button {
-    background-color: #cb8461;
-    color: #fff;
-    box-shadow: 0px 10px 40px rgba(198, 131, 98, 0.4);
+    background-color: #f3f3f3;
   }
 
   .testimonials-section .buttons .right-button:hover {
-    background-color: rgb(176, 114, 83);
+    background-color: #cb8461;
   }
 
   .testimonials-section .buttons button i {
-    font-size: 2.2rem;
+    font-size: 3rem;
   }
 
   /* ---------------------------------------------------------------------------- */
